@@ -4,14 +4,15 @@ author: "Kyle Day"
 output: pdf_document
 ---
 ##Overview
-Now in the second portion of the project, we're going to analyze the ToothGrowth data in the R datasets package. 
-###Step 1: Loading the data
+Now in the second portion of the project, we're going to analyze the ToothGrowth data in the R datasets package.   
+
+##Step 1: Loading the data
 ```{r}
 data(ToothGrowth)
 toothgrowth <- ToothGrowth 
 toothgrowth$dose <- as.factor(toothgrowth$dose) ## will help things later on.
 ```
-###Step 2: Summary
+##Step 2: Summary
 Description:
 The response is the length of odontoblasts (teeth) in each of 10 guinea pigs at each of three dose levels of Vitamin C (0.5, 1, and 2 mg) with each of two delivery methods (orange juice or ascorbic acid). 
 
@@ -42,7 +43,7 @@ par(mfrow=c(1,3))
 
 From these charts it seems like the main relationship of len is with dose and is varied by supp. This supports the basic ideas of the experiment.
 
-##Compare tooth growth by supp and dose.
+##Step 3: Compare tooth growth by supp and dose.
 We know from the information supplied to us about the experiment that the Guinea Pigs are kept on a Vitamin C free diet and that the 0.5 dose is essential for them not to get scurvy. Because of this we can treat 0.5 dose as a base level or control.  
 There are really two questions posed by this experiment. 
 
@@ -83,5 +84,5 @@ t.test(meth1$VC[,1], meth1$OJ[,1], var.equal = TRUE)
 ```
 Because our p-value is higher than our alpha we **fail to reject** Ho.
 
-##Conclusions and Assumptions
+##Step 4: Conclusions and Assumptions
 In summary we have rejected the hypothesis that length of teeth will be the same regardless of Vitamin C level. We also know, because the confidence intervals were negative, the length at dose 0.5 was less than at both dose one and two. Suggesting an increased length for greater amounts of Vitamin C. We also have failed to reject the hypothesis that the supplements of orange juice and ascorbic acid have different effects on teeth length for measures across all doses. **These conclusions are based off the assumptions that this group of Guinea Pigs represents the whole population, was picked at random, dosed at random, different Guinea Pigs were used for each dose (therefore not paired),the dose 0.5 is a good baseline level of Vitamin C, and the data is normally distributed.** Lastly, in the future we might also want to test if orange juice and ascorbic acid have different effects on teeth length for specific  doses.
