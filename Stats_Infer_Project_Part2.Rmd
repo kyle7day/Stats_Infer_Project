@@ -1,5 +1,6 @@
 ---
 title: "Statistical Inference Project Part 2"
+author: "Kyle Day"
 output: pdf_document
 ---
 ##Overview
